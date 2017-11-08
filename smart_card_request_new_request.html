@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="css/reset.css" rel="stylesheet">
+        
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script src="js/html5shiv-printshiv.js"></script>           
+        <![endif]-->
+        
+        <title>Smart Card Request</title>
+        
+    </head>
+    
+    <body>
+        
+        <section>
+                
+            <header>
+             
+                 <h1>Smart Card Request Page</h1>
+            
+                 <nav>
+                
+					<ul>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Forgot UserID / Forgot Password?</a></li>
+					</ul>
+
+                </nav>
+               
+            </header>
+        
+            <table style="width: 100%; margin-left: 0px; margin-top: 0px;">
+            <tr>
+                <td colspan="3">
+                    <strong>REGISTRATION</strong></td>
+            </tr>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input name="Name" type="text" maxlength="100" style="width:434px;" />
+                </td>
+            </tr>
+            <tr>
+                <td dir="ltr" style="vertical-align: top; text-align: right;">
+                    Address for Despatch of Card
+                </td>
+                <td >
+                    :
+                </td>
+                <td>
+                    <textarea name="AddressDesp" rows="2" cols="20" style="height:43px;width:647px;"></textarea>
+                    <br />Pin Code :<input name="PINCode" type="text" maxlength="6" style="width:96px;" />
+					<br />( Please Type full address and correct Pincode, the Namma Metro Travel Card will be sent to this address)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    EMail ID
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input name="EMail" type="text" maxlength="100" />
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    Confirm EMail ID
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input name="EMailConfirm" type="text" maxlength="100" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Mobile No
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    +91
+                    <input name="Mobile" type="text" maxlength="10" style="width:138px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Confirm Mobile No
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    +91
+                    <input name="MobileConfirm" type="text" maxlength="10" style="width:137px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+            
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    ( Provide valid Mobile Number, in case of forgotten UserID or Password
+                    the same will sent to this mobile number)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="submit" name="Submitt" value="Submit" style="width:96px;text-align: center" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Registration Number
+                </td>
+                <td>
+                    :
+                </td>
+                <td>
+                    <input name="RegNo" type="text" maxlength="11" readonly="readonly" style="width:436px;" />
+                    <br />
+                    (Please note down this Registration Number. This will be your User ID for login.)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <span style="color:Red;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <select size="4" name="Errors"  style="color:Red;height:130px;width:100%;"></select>
+                </td>
+            </tr>
+			</table>
+
+        
+            <footer>
+            
+            </footer>
+        
+        </section>
+    
+    </body>
+</html>
