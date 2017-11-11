@@ -21,10 +21,11 @@
 
         .demo-content{
         	padding: 50px;
-        	font-size: 18px;
-        	text-align: center;
-        	background: #8eccc6;
-        	margin:50px 20em 50px 20em;
+            font-size: 18px;
+            text-align: center;
+            background: #8eccc6;
+            margin:50px 22em 50px 22em;
+
         }
         .demo-content.bg-alt{
         	background: #abb1b8;
@@ -75,14 +76,6 @@
         	text-decoration: none;
         	color: inherit;
         }
-
-        .bs-example{
-        	margin: 10px;
-        }
-        /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
-        .form-horizontal .control-label{
-        	padding-top: 7px;
-        }
     </style>
 
 </head>
@@ -105,6 +98,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
+
 				</button>
 				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
 			</div>
@@ -112,54 +106,57 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
-					<li class="active"><a href="#" target="_blank">Admin Login</a></li>
+					<li><a href="admin_login.php">Admin Login</a></li>
 					<li><a href="smart_card_request_page.html">Smart Card Request</a></li>
 					<li><a href="smart_card_login.php">Smart Card Login</a></li>
-					<li><a href="train_and_timings.html">Trains and Timings</a></li>
+					<li  class="active"><a href="#">Trains and Timings</a></li>
 					<li><a href="routes_and_stations.html">Routes and Stations</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 
-	<div class = "container">
-		<div class="demo-content">
-			<div class="row">
-				<div class="Absolute-Center is-Responsive">
-					<div id="logo-container"></div>
-					<div class="col-sm-12 col-md-10 col-md-offset-1">
-						<form action="" id="loginForm">
-							<div class="form-group input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-								<input class="form-control" type="text" name='admin_id' placeholder="Admin-ID" required />
-							</div>
-							<div class="form-group input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-								<input class="form-control" type="password" name='password' placeholder="Password" required />
-							</div>
-							<div class="form-group">
-								<div class="col-xs-offset-2 col-xs-6">
-									<button type="submit" class="btn btn-primary">Login</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<footer class="footer-basic-centered">
+    <div class="container">
 
-		<p class="footer-links">
-			<a href="HomePage.html">Home</a>
-			|
-			<a href="contact_us.html">Contact Us</a>
-			|
-			<a href="support.html">Support</a>
-		</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Train Number</th>
+                    <th>Train Name</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Arrival</th>
+                    <th>Departure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
 
-	</footer>
+    </div>
+
+
+    <footer class="footer-basic-centered">
+
+        <p class="footer-links">
+            <a href="HomePage.html">Home</a>
+            |
+            <a href="contact_us.html">Contact Us</a>
+            |
+            <a href="support.html">Support</a>
+        </p>
+
+    </footer>
 
 
 

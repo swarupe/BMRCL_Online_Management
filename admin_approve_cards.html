@@ -20,11 +20,12 @@
         <style type="text/css">
 
         .demo-content{
-        	padding: 50px;
+        	padding: 30px;
         	font-size: 18px;
         	text-align: center;
+        	min-height: 100px;
         	background: #8eccc6;
-        	margin:50px 20em 50px 20em;
+        	margin-bottom: 30px;
         }
         .demo-content.bg-alt{
         	background: #abb1b8;
@@ -83,6 +84,10 @@
         .form-horizontal .control-label{
         	padding-top: 7px;
         }
+        .margins {
+        	margin-right: 5px;
+        	margin-top: 17px;
+        }
     </style>
 
 </head>
@@ -101,10 +106,6 @@
 					<span class="sr-only">BMRCL Online Management</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
 			</div>
@@ -112,49 +113,32 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
-					<li class="active"><a href="#" target="_blank">Admin Login</a></li>
-					<li><a href="smart_card_request_page.html">Smart Card Request</a></li>
-					<li><a href="smart_card_login.php">Smart Card Login</a></li>
-					<li><a href="train_and_timings.html">Trains and Timings</a></li>
-					<li><a href="routes_and_stations.html">Routes and Stations</a></li>
+					<li class="active"><a href="#">Admin</a></li>
 				</ul>
-			</div>
-		</div>
-	</div>
-
-	<div class = "container">
-		<div class="demo-content">
-			<div class="row">
-				<div class="Absolute-Center is-Responsive">
-					<div id="logo-container"></div>
-					<div class="col-sm-12 col-md-10 col-md-offset-1">
-						<form action="" id="loginForm">
-							<div class="form-group input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-								<input class="form-control" type="text" name='admin_id' placeholder="Admin-ID" required />
-							</div>
-							<div class="form-group input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-								<input class="form-control" type="password" name='password' placeholder="Password" required />
-							</div>
-							<div class="form-group">
-								<div class="col-xs-offset-2 col-xs-6">
-									<button type="submit" class="btn btn-primary">Login</button>
-								</div>
-							</div>
-						</form>
-					</div>
+				<div class="navbar-right margins">
+					<a href="adminlogin.php" class="btn btn-info btn-lg">
+						<span class="glyphicon glyphicon-log-out"></span> Log out
+					</a>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
+
+
+
+
+
+
+
 
 	<footer class="footer-basic-centered">
 
 		<p class="footer-links">
 			<a href="HomePage.html">Home</a>
 			|
-			<a href="contact_us.html">Contact Us</a>
+			<a href="conatct_us.html">Contact Us</a>
 			|
 			<a href="support.html">Support</a>
 		</p>
