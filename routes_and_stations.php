@@ -109,8 +109,8 @@
          <li><a href="admin_login.php">Admin Login</a></li>
          <li><a href="smart_card_request_page.html">Smart Card Request</a></li>
          <li><a href="smart_card_login.php">Smart Card Login</a></li>
-         <li  class="active"><a href="trains_and_timings.html">Trains and Timings</a></li>
-         <li><a href="routes_and_stations.html">Routes and Stations</a></li>
+         <li><a href="train_and_timings.html">Trains and Timings</a></li>
+         <li  class="active"><a href="routes_and_stations.php">Routes and Stations</a></li>
        </ul>
      </div>
    </div>
@@ -127,12 +127,22 @@
         </div>
         <div id="collapse1" class="panel-collapse collapse">
           <ul class="list-group">
-            <li class="list-group-item">One</li>
-            <li class="list-group-item">Two</li>
-            <li class="list-group-item">Three</li>
-            <li class="list-group-item">One</li>
-            <li class="list-group-item">Two</li>
-            <li class="list-group-item">Three</li>
+            <?php
+            include("php/connect.php");
+            $con = OpenCon();
+            $stations = mysqli_query($con,"SELECT Station_Name FROM station");
+            //$row = $stations->fetch_array();
+            $row_cnt = mysqli_num_rows($stations);
+
+            while ( $rows = $stations->fetch_row() ) {
+              foreach ($rows as $key => $value) {
+                echo '<li class="list-group-item">',$value,'</li>';
+              }
+            }
+            $stations->free();
+
+            Closecon($con);
+            ?>
           </ul>
         </div>
       </div>

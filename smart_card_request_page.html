@@ -136,7 +136,7 @@
 
             <div class="col-lg-8 col-lg-offset-2">
 
-                <form id="contact-form" method="post" action="#" role="form">
+                <form id="contact-form" method="post" action="php/new_customer_request_card.php" role="form">
 
                     <div class="messages"></div>
 
@@ -146,14 +146,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="form_name">Firstname *</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Please enter your firstname" required="required" data-error="Firstname is required.">
+                                    <input type="text" name="fname" class="form-control" placeholder="Please enter your firstname" required="required" data-error="Firstname is required.">
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="form_lastname">Lastname *</label>
-                                    <input type="text" name="surname" class="form-control" placeholder="Please enter your lastname" required="required" data-error="Lastname is required.">
+                                    <input type="text" name="lname" class="form-control" placeholder="Please enter your lastname" required="required" data-error="Lastname is required.">
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -174,16 +174,34 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="form_email">Username *</label>
+                                    <input type="text" name="username" class="form-control" placeholder="Please enter username" required="required" data-error="Valid username is required.">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="form_phone">Password *</label>
+                                    <input type="password" name="phone" class="form-control" placeholder="Please enter password">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="form_message">Address *</label>
-                                    <textarea name="message" class="form-control" placeholder="Smart Card will be delivered to this address" rows="4" required="required" data-error="Please,enter your address"></textarea>
+                                    <textarea name="address" class="form-control" placeholder="Smart Card will be delivered to this address" rows="4" required="required" data-error="Please,enter your address"></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <input type="submit" class="btn btn-success btn-send" value="Send Request">
+                                <input type="submit" name="submit" class="btn btn-success btn-send" value="Send Request">
                             </div>
                         </div>
                         <div class="row">
