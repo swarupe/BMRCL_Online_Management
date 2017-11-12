@@ -1,3 +1,12 @@
+<?php
+
+include("php/connect.php");
+
+$con = OpenCon();
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,10 +122,10 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
-					<li class="active"><a href="#">Smart Card</a></li>
+					<li class="active"><a href="#">Admin</a></li>
               </ul>
               <div class="navbar-right margins">
-                <a href="smart_card_login.php" class="btn btn-info btn-lg">
+                <a href="admin_login.php" class="btn btn-info btn-lg">
                   <span class="glyphicon glyphicon-log-out"></span> Log out
               </a>
           </div>
@@ -125,22 +134,45 @@
 </div>
 
 
+<?php
 
-<div class = "container">
+$admins = mysqli_query($con,"SELECT Admin_ID,Admin_Name,Age,Sex,Email FROM admin WHERE 1");
 
-   <div class="col-md-6">
-    <div class="form-group">
-        <label for="form_phone">Recharge Amount</label>
-        <input type="number" name="phone" class="form-control" placeholder="Please enter amount">
-        <div class="help-block with-errors"></div>
-    </div>
+?>
+
+
+<div class="container">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Admin ID</th>
+                <th>Admin Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Email</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            while ($row = mysqli_fetch_assoc($admins))
+            {
+                echo '<tr>';
+                foreach ($row as $key => $value) {
+                    echo '<td>',$value,'</td>';
+                }
+                echo "<td><a href='php/delete_admins.php?id=".$row['Admin_ID']."'><button type=\"button\" class=\"btn btn-link\">Delete</button></a></td>";
+                echo '</tr>';
+            }
+            ?>
+        </tbody>
+    </table>
+
 </div>
-<div class="col-md-12">
-    <input type="submit" class="btn btn-success btn-send" value="Recharge">
-</div>
 
 
-</div>
+
 
 
 
@@ -155,5 +187,8 @@
     </p>
 
 </footer>
+
+
+
 </body>
 </html>

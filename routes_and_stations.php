@@ -109,7 +109,7 @@
          <li><a href="admin_login.php">Admin Login</a></li>
          <li><a href="smart_card_request_page.html">Smart Card Request</a></li>
          <li><a href="smart_card_login.php">Smart Card Login</a></li>
-         <li><a href="train_and_timings.html">Trains and Timings</a></li>
+         <li><a href="train_and_timings.php">Trains and Timings</a></li>
          <li  class="active"><a href="routes_and_stations.php">Routes and Stations</a></li>
        </ul>
      </div>

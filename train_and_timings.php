@@ -20,12 +20,12 @@
         <style type="text/css">
 
         .demo-content{
-        	padding: 30px;
-        	font-size: 18px;
-        	text-align: center;
-        	min-height: 100px;
-        	background: #8eccc6;
-        	margin-bottom: 30px;
+        	padding: 50px;
+            font-size: 18px;
+            text-align: center;
+            background: #8eccc6;
+            margin:50px 22em 50px 22em;
+
         }
         .demo-content.bg-alt{
         	background: #abb1b8;
@@ -76,18 +76,6 @@
         	text-decoration: none;
         	color: inherit;
         }
-
-        .bs-example{
-        	margin: 10px;
-        }
-        /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
-        .form-horizontal .control-label{
-        	padding-top: 7px;
-        }
-        .margins {
-            margin-right: 5px;
-            margin-top: 17px;
-        }
     </style>
 
 </head>
@@ -106,6 +94,11 @@
 					<span class="sr-only">BMRCL Online Management</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+
 				</button>
 				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
 			</div>
@@ -113,21 +106,47 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
-					<li class="active"><a href="#">Admin</a></li>
-              </ul>
-              <div class="navbar-right margins">
-                <a href="admin_login.php" class="btn btn-info btn-lg">
-                  <span class="glyphicon glyphicon-log-out"></span> Log out
-              </a>
-          </div>
-      </div>
-  </div>
+					<li><a href="admin_login.php">Admin Login</a></li>
+					<li><a href="smart_card_request_page.html">Smart Card Request</a></li>
+					<li><a href="smart_card_login.php">Smart Card Login</a></li>
+					<li  class="active"><a href="#">Trains and Timings</a></li>
+					<li><a href="routes_and_stations.php">Routes and Stations</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+    <div class = "demo-content">
+        <form class="form-horizontal" method="POST" action="php/train_details_input.php">
+            <div class="form-group">
+                <label class="control-label col-xs-2">Route</label>
+                <div class="col-xs-10">
+                  <select name="route" class="form-control" id="sel1">
+                    <option>Green Lane</option>
+                    <option>Purple Lane</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-2">From</label>
+            <div class="col-xs-10">
+                <input type="text" name="from" class="form-control" placeholder="From Location">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-2">To</label>
+            <div class="col-xs-10">
+                <input type="text" name="to" class="form-control" placeholder="To Location">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
 </div>
-
-
-
-
-
 
 
 

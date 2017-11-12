@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,16 +109,17 @@
 					<span class="sr-only">BMRCL Online Management</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
-			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="nav navbar-nav">
-					<li><a href="HomePage.html">Home</a></li>
-					<li class="active"><a href="#">Admin</a></li>
-              </ul>
-              <div class="navbar-right margins">
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav navbar-nav">
+                 <li><a href="HomePage.html">Home</a></li>
+                 <li class="active"><a href="#"><?php echo $_SESSION['Admin_Name']; ?></a></li>
+             </ul>
+             <div class="navbar-right margins">
                 <a href="admin_login.php" class="btn btn-info btn-lg">
                   <span class="glyphicon glyphicon-log-out"></span> Log out
               </a>
@@ -128,7 +132,7 @@
 
     <div class="row">
         <div class="col-md-4">
-            <div class="demo-content"><a href="admin_manage_admins.html">Manage Admins</a></div>
+            <div class="demo-content"><a href="admin_manage_admins.php">Manage Admins</a></div>
         </div>
 
         <div class="col-md-4">

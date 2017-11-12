@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,12 +23,12 @@
         <style type="text/css">
 
         .demo-content{
-        	padding: 50px;
-            font-size: 18px;
-            text-align: center;
-            background: #8eccc6;
-            margin:50px 22em 50px 22em;
-
+        	padding: 30px;
+        	font-size: 18px;
+        	text-align: center;
+        	min-height: 100px;
+        	background: #8eccc6;
+        	margin-bottom: 30px;
         }
         .demo-content.bg-alt{
         	background: #abb1b8;
@@ -76,6 +79,21 @@
         	text-decoration: none;
         	color: inherit;
         }
+
+        .bs-example{
+        	margin: 10px;
+        }
+        /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+        .form-horizontal .control-label{
+        	padding-top: 7px;
+        }
+        .margins {
+            margin-right: 5px;
+            margin-top: 17px;
+        }
+        .top_padding {
+            padding-top: 30px;
+        }
     </style>
 
 </head>
@@ -94,11 +112,6 @@
 					<span class="sr-only">BMRCL Online Management</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-
 				</button>
 				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
 			</div>
@@ -106,56 +119,79 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
-					<li><a href="admin_login.php">Admin Login</a></li>
-					<li><a href="smart_card_request_page.html">Smart Card Request</a></li>
-					<li><a href="smart_card_login.php">Smart Card Login</a></li>
-					<li  class="active"><a href="#">Trains and Timings</a></li>
-					<li><a href="routes_and_stations.html">Routes and Stations</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+					<li class="active"><a href="#">Smart Card</a></li>
+              </ul>
+              <div class="navbar-right margins">
+                <a href="smart_card_login.php" class="btn btn-info btn-lg">
+                  <span class="glyphicon glyphicon-log-out"></span> Log out
+              </a>
+          </div>
+      </div>
+  </div>
+</div>
 
+<div class="container">
 
-    <div class = "demo-content">
-        <form class="form-horizontal">
-            <div class="form-group">
-                <label class="control-label col-xs-2">From</label>
-                <div class="col-xs-10">
-                    <input type="text" class="form-control" placeholder="From Location">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-xs-2">To</label>
-                <div class="col-xs-10">
-                    <input type="text" class="form-control" placeholder="To Location">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-offset-2 col-xs-10">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </div>
-        </form>
+    <div class="col-md-10">
+        <h4>Card Number : <?php echo $_SESSION['Card_Number']; ?> </h4> 
+
     </div>
 
+    <div class="col-md-12">
+        <h4>Name : <?php echo $_SESSION['Fname']," ", $_SESSION['Lname'];?> </h4>    
+    </div>
+    <div class="col-md-12">
+        <h4>Card Status : <?php echo $_SESSION['Card_Status']; ?> </h4>    
+    </div>
+
+    <div class="col-md-12">
+        <h4>Balance : <?php echo $_SESSION['Balance']; ?> </h4>    
+    </div>
+</div>
+
+
+<div class = "container top_padding">
+    <form action="php/recharge.php" method="POST">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="form_phone">Recharge Amount</label>
+                <input type="number" name="amount" class="form-control" placeholder="Please enter amount">
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <input type="submit" name="submit" class="btn btn-success btn-send" value="Recharge">
+        </div>
+
+    </form>
+
+</div>
+<div style="margin-left: 9em; margin-right: 50em;">
+    <p class="bg-success" style="margin-top: 20px;">
+        <?php
+
+        if(!empty($_SESSION['successfull']))
+        {
+            echo $_SESSION['successfull'];
+            unset($_SESSION['successfull']);
+        }
+
+        ?>
+    </p>
+</div>
 
 
 
+<footer class="footer-basic-centered">
 
-    <footer class="footer-basic-centered">
+    <p class="footer-links">
+        <a href="HomePage.html">Home</a>
+        |
+        <a href="contact_us.html">Contact Us</a>
+        |
+        <a href="support.html">Support</a>
+    </p>
 
-        <p class="footer-links">
-            <a href="HomePage.html">Home</a>
-            |
-            <a href="contact_us.html">Contact Us</a>
-            |
-            <a href="support.html">Support</a>
-        </p>
-
-    </footer>
-
-
-
+</footer>
 </body>
 </html>
