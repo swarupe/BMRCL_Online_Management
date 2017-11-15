@@ -1,3 +1,23 @@
+<?php
+
+include("php/connect.php");
+
+$con = OpenCon();
+
+if(isset($_POST['submit']))
+{
+    $route = $_POST['route'];
+    $from_addr = $_POST['from'];
+    $to_addr = $_POST['to'];
+    $details = mysqli_query($con,"SELECT T.Train_Id, frm.Station_Name AS 'FROM' , too.Station_Name AS 'TO', D.Arrival, D.Departure 
+        FROM display_status D, train T,station S, station frm, station too, route R 
+        WHERE T.Train_Id=D.Train_id AND D.Station_Id = S.Station_Id AND R.Route_Id = S.Route_Id  AND R.Route_Name = '$route' AND Frm.Station_Name = '$from_addr' AND too.Station_Name = '$to_addr'  ");
+    $row_cnt = mysqli_num_rows($details);
+    
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,7 +143,7 @@
             <thead>
                 <tr>
                     <th>Train Number</th>
-                    <th>Train Name</th>
+                    <!--<th>Train Name</th>-->
                     <th>From</th>
                     <th>To</th>
                     <th>Arrival</th>
@@ -131,15 +151,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                </tr>
+                <?php
+                while ($row = mysqli_fetch_assoc($details))
+                {
+                    echo '<tr>';
+                    foreach ($row as $key => $value) {
+                        echo '<td>',$value,'</td>';
+                    }
+                //echo "<td><a href='php/delete_admins.php?id=".$row['Admin_ID']."'><button type=\"button\" class=\"btn btn-link\">Delete</button></a></td>";
+                    echo '</tr>';
+                }
+                ?>
             </tbody>
         </table>
 
@@ -162,3 +184,11 @@
 
 </body>
 </html>
+
+
+<?php
+
+$details->free();
+Closecon($con);
+
+?>

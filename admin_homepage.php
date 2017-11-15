@@ -136,11 +136,11 @@ session_start();
         </div>
 
         <div class="col-md-4">
-            <div class="demo-content"><a href="admin_approve_cards.html">Approve Smart Card</a></div>
+            <div class="demo-content"><a href="admin_approve_cards.php">Approve Smart Card</a></div>
         </div>
 
         <div class="col-md-4">
-            <div class="demo-content"><a href="admin_reply_complaints.html">Reply to Complaints</a></div>
+            <div class="demo-content"><a href="admin_reply_complaints.php">Reply to Complaints</a></div>
         </div>
     </div>
     <div class="row">

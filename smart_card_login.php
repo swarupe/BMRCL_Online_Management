@@ -25,12 +25,11 @@ $con = OpenCon();
         <style type="text/css">
 
         .demo-content{
-        	padding: 30px;
+        	padding: 50px;
         	font-size: 18px;
         	text-align: center;
-        	min-height: 100px;
         	background: #8eccc6;
-        	margin-bottom: 10px;
+        	margin:10px 20em 50px 20em;
         }
         .demo-content.bg-alt{
         	background: #abb1b8;
@@ -90,7 +89,7 @@ $con = OpenCon();
         	padding-top: 7px;
         }
         .padding {
-        	padding-left: 120px;
+        	padding-left: 16em;
         	padding-bottom: 10px;
         }
     </style>
@@ -163,19 +162,34 @@ $con = OpenCon();
 				</div>
 			</div>
 
-			<p class="bg-danger">
-				<?php
 
-				if(!empty($_SESSION['error_message']))
-				{
-					echo $_SESSION['error_message'];
-					unset($_SESSION['error_message']);
-				}
-
-				?>
-			</p>
 		</div>
 
+	</div>
+	<div class="container">
+		<p class="bg-danger">
+			<?php
+
+			if(!empty($_SESSION['error_message']))
+			{
+				echo $_SESSION['error_message'];
+				unset($_SESSION['error_message']);
+			}
+
+			?>
+		</p>
+
+		<p class="bg-success">
+			<?php
+
+			if(!empty($_SESSION['request_sent']))
+			{
+				echo $_SESSION['request_sent'];
+				unset($_SESSION['request_sent']);
+			}
+
+			?>
+		</p>
 	</div>
 
 
@@ -185,8 +199,6 @@ $con = OpenCon();
 			<a href="HomePage.html">Home</a>
 			|
 			<a href="conatct_us.html">Contact Us</a>
-			|
-			<a href="support.html">Support</a>
 		</p>
 
 	</footer>

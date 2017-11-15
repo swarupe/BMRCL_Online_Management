@@ -1,3 +1,12 @@
+<?php
+
+include("php/connect.php");
+
+$con = OpenCon();
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -126,24 +135,60 @@
 
 
 
+    <?php
+
+    $cards = mysqli_query($con,"SELECT Cust_Id, Card_No, Card_Status FROM smartcard WHERE Card_Status NOT IN (SELECT Card_Status FROM smartcard where Card_Status = 'Issued') ORDER BY Cust_Id");
+
+    ?>
+
+
+    <div class="container">
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Smart Card Number</th>
+                    <th>Card Status</th>
+                    <th>New Status</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                while ($row = mysqli_fetch_assoc($cards))
+                {
+                    echo '<tr>';
+                    foreach ($row as $key => $value) {
+                        echo '<td style="word-wrap: break-word;min-width: 10px;max-width: 300px;">',$value,'</td>';
+                    }
+                    echo '<form action="php/issue_card.php" method="GET"><td><input name="new_status" type="text" class="form-control" required="required" data-error="Enter status" /></td><td><input name="'.$row['Cust_Id'].'" type="submit" class="btn btn-link" value="Update Status"/></td></form>';
+
+                    //echo '<form action="php/issue_card.php" method="GET"><td><input name="new_status" type="text" class="form-control" required="required" data-error="Enter status" /></td>';
+                    //echo "<td><a href='php/issue_card.php?id=".$row['Cust_Id']."'><button type=\"button\" class=\"btn btn-link\">Status Update</button></a></td></form>";
+                    echo '</tr>';
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 
 
 
 
 
 
+    <footer class="footer-basic-centered">
 
-	<footer class="footer-basic-centered">
+      <p class="footer-links">
+       <a href="HomePage.html">Home</a>
+       |
+       <a href="conatct_us.html">Contact Us</a>
+       |
+       <a href="support.html">Support</a>
+   </p>
 
-		<p class="footer-links">
-			<a href="HomePage.html">Home</a>
-			|
-			<a href="conatct_us.html">Contact Us</a>
-			|
-			<a href="support.html">Support</a>
-		</p>
-
-	</footer>
+</footer>
 
 
 

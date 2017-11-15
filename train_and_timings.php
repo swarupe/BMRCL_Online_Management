@@ -118,7 +118,7 @@
 
 
     <div class = "demo-content">
-        <form class="form-horizontal" method="POST" action="php/train_details_input.php">
+        <form class="form-horizontal" method="POST" action="train_details_page.php">
             <div class="form-group">
                 <label class="control-label col-xs-2">Route</label>
                 <div class="col-xs-10">

@@ -136,7 +136,7 @@ session_start();
 						<form action="php/admin_login_check.php" method="POST" id="loginForm">
 							<div class="form-group input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-								<input class="form-control" type="text" name='admin_id' placeholder="Admin-ID" required />
+								<input class="form-control" type="email" name='admin_id' placeholder="Admin-Email" required />
 							</div>
 							<div class="form-group input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>

@@ -130,18 +130,17 @@
             <?php
             include("php/connect.php");
             $con = OpenCon();
-            $stations = mysqli_query($con,"SELECT Station_Name FROM station");
+            $stations1 = mysqli_query($con,"SELECT Station_Name FROM station WHERE Route_Id = 1");
             //$row = $stations->fetch_array();
-            $row_cnt = mysqli_num_rows($stations);
+            $row_cnt = mysqli_num_rows($stations1);
 
-            while ( $rows = $stations->fetch_row() ) {
+            while ( $rows = $stations1->fetch_row() ) {
               foreach ($rows as $key => $value) {
                 echo '<li class="list-group-item">',$value,'</li>';
               }
             }
-            $stations->free();
+            $stations1->free();
 
-            Closecon($con);
             ?>
           </ul>
         </div>
@@ -157,12 +156,20 @@
         </div>
         <div id="collapse2" class="panel-collapse collapse">
           <ul class="list-group">
-            <li class="list-group-item">One</li>
-            <li class="list-group-item">Two</li>
-            <li class="list-group-item">Three</li>
-            <li class="list-group-item">One</li>
-            <li class="list-group-item">Two</li>
-            <li class="list-group-item">Three</li>
+            <?php
+            $stations2 = mysqli_query($con,"SELECT Station_Name FROM station WHERE Route_Id = 2");
+            //$row = $stations->fetch_array();
+            $row_cnt = mysqli_num_rows($stations2);
+
+            while ( $rows = $stations2->fetch_row() ) {
+              foreach ($rows as $key => $value) {
+                echo '<li class="list-group-item">',$value,'</li>';
+              }
+            }
+            $stations2->free();
+
+            Closecon($con);
+            ?>
           </ul>
         </div>
       </div>

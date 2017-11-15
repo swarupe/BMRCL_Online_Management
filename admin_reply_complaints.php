@@ -1,3 +1,12 @@
+<?php
+
+include("php/connect.php");
+
+$con = OpenCon();
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,6 +97,8 @@
             margin-right: 5px;
             margin-top: 17px;
         }
+
+
     </style>
 
 </head>
@@ -125,15 +136,45 @@
   </div>
 
 
+  <?php
+
+  $complaints = mysqli_query($con,"SELECT Comp_Id, Comp_Name, Comp_Desc FROM complaint WHERE Comp_Status = 'Not Replied'");
+
+  ?>
+
+
+  <div class="container">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Complaint ID</th>
+                <th>Subject</th>
+                <th>Complaint Description</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            while ($row = mysqli_fetch_assoc($complaints))
+            {
+                echo '<tr>';
+                foreach ($row as $key => $value) {
+                    echo '<td style="word-wrap: break-word;min-width: 10px;max-width: 300px;">',$value,'</td>';
+                }
+                echo "<td><a href='php/reply_to_complaints.php?id=".$row['Comp_Id']."'><button type=\"button\" class=\"btn btn-link\">Reply</button></a></td>";
+                echo '</tr>';
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
 
 
 
 
 
-
-
-
-  <footer class="footer-basic-centered">
+<footer class="footer-basic-centered">
 
     <p class="footer-links">
         <a href="HomePage.html">Home</a>

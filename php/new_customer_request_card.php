@@ -13,8 +13,14 @@ if(isset($_POST['submit']))
 	$password = $_POST['password'];
 	$address = $_POST['address'];
 
-	$add_new_request = mysqli_query($con,"INSERT INTO `customer`(`Address`, `Phone_No`, `Fname`, `Lname`, `Password`, `Username`) VALUES ('$address','$phone','$fname','$lname','$password','$username')"); 
+	$add_new_request = mysqli_query($con,"INSERT INTO `customer`(`Address`, `Phone_No`, `Fname`, `Lname`, `Password`, `Username`) VALUES ('$address','$phone','$fname','$lname','$password','$username')");
+	$cust_id = mysqli_insert_id($con);
 
+	$smartcard_no = rand(1111111111,1999999999);
+
+	$add_new_card = mysqli_query($con,"INSERT INTO `smartcard`(`Card_No`,`Cust_Id`) VALUES ('$smartcard_no','$cust_id')");
+
+	$_SESSION['request_sent'] = "Your request has been sent successfully login to check the status";
 	header("location: ../smart_card_login.php");
 }
 
