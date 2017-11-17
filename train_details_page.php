@@ -9,11 +9,11 @@ if(isset($_POST['submit']))
     $route = $_POST['route'];
     $from_addr = $_POST['from'];
     $to_addr = $_POST['to'];
-    $details = mysqli_query($con,"SELECT T.Train_Id, frm.Station_Name AS 'FROM' , too.Station_Name AS 'TO', D.Arrival, D.Departure 
-        FROM display_status D, train T,station S, station frm, station too, route R 
+    $details = mysqli_query($con,"SELECT T.Train_Id, frm.Station_Name AS 'FROM' , too.Station_Name AS 'TO', D.Arrival, D.Departure
+        FROM display_status D, train T,station S, station frm, station too, route R
         WHERE T.Train_Id=D.Train_id AND D.Station_Id = S.Station_Id AND R.Route_Id = S.Route_Id  AND R.Route_Name = '$route' AND Frm.Station_Name = '$from_addr' AND too.Station_Name = '$to_addr'  ");
     $row_cnt = mysqli_num_rows($details);
-    
+
 }
 ?>
 
@@ -29,8 +29,7 @@ if(isset($_POST['submit']))
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!-- Optional Bootstrap theme -->
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script src="js/html5shiv-printshiv.js"></script>
@@ -107,7 +106,6 @@ if(isset($_POST['submit']))
 
 
 	<div id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="container-fluid bg-color">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
@@ -122,7 +120,6 @@ if(isset($_POST['submit']))
 				</button>
 				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
@@ -130,7 +127,7 @@ if(isset($_POST['submit']))
 					<li><a href="smart_card_request_page.html">Smart Card Request</a></li>
 					<li><a href="smart_card_login.php">Smart Card Login</a></li>
 					<li  class="active"><a href="#">Trains and Timings</a></li>
-					<li><a href="routes_and_stations.html">Routes and Stations</a></li>
+					<li><a href="routes_and_stations.php">Routes and Stations</a></li>
 				</ul>
 			</div>
 		</div>
@@ -174,8 +171,6 @@ if(isset($_POST['submit']))
             <a href="HomePage.html">Home</a>
             |
             <a href="contact_us.html">Contact Us</a>
-            |
-            <a href="support.html">Support</a>
         </p>
 
     </footer>

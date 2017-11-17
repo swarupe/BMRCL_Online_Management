@@ -33,6 +33,7 @@ else {
 	header("location: ../smart_card_login.php");
 }
 $user->free();
-Closecon($con);
+
+CloseCon($con);
 
 ?>

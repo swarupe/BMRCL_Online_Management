@@ -26,6 +26,7 @@ else {
 	header("location: ../admin_login.php");
 }
 $admin->free();
-Closecon($con);
+
+CloseCon($con);
 
 ?>

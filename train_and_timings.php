@@ -9,7 +9,6 @@
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -21,10 +20,10 @@
 
         .demo-content{
         	padding: 50px;
-            font-size: 18px;
-            text-align: center;
-            background: #8eccc6;
-            margin:50px 22em 50px 22em;
+        	font-size: 18px;
+        	text-align: center;
+        	background: #8eccc6;
+        	margin:50px 22em 50px 22em;
 
         }
         .demo-content.bg-alt{
@@ -87,7 +86,6 @@
 
 
 	<div id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="container-fluid bg-color">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
@@ -102,7 +100,6 @@
 				</button>
 				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
@@ -117,52 +114,50 @@
 	</div>
 
 
-    <div class = "demo-content">
-        <form class="form-horizontal" method="POST" action="train_details_page.php">
-            <div class="form-group">
-                <label class="control-label col-xs-2">Route</label>
-                <div class="col-xs-10">
-                  <select name="route" class="form-control" id="sel1">
-                    <option>Green Lane</option>
-                    <option>Purple Lane</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-xs-2">From</label>
-            <div class="col-xs-10">
-                <input type="text" name="from" class="form-control" placeholder="From Location">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-xs-2">To</label>
-            <div class="col-xs-10">
-                <input type="text" name="to" class="form-control" placeholder="To Location">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-10">
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    </form>
-</div>
+	<div class = "demo-content">
+		<form class="form-horizontal" method="POST" action="train_details_page.php">
+			<div class="form-group">
+				<label class="control-label col-xs-2">Route</label>
+				<div class="col-xs-10">
+					<select name="route" class="form-control" id="sel1">
+						<option>Green Lane</option>
+						<option>Purple Lane</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-xs-2">From</label>
+				<div class="col-xs-10">
+					<input type="text" name="from" class="form-control" placeholder="From Location">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-xs-2">To</label>
+				<div class="col-xs-10">
+					<input type="text" name="to" class="form-control" placeholder="To Location">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-offset-2 col-xs-10">
+					<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
 
 
 
 
 
-<footer class="footer-basic-centered">
+	<footer class="footer-basic-centered">
 
-    <p class="footer-links">
-        <a href="HomePage.html">Home</a>
-        |
-        <a href="contact_us.html">Contact Us</a>
-        |
-        <a href="support.html">Support</a>
-    </p>
+		<p class="footer-links">
+			<a href="HomePage.html">Home</a>
+			|
+			<a href="contact_us.html">Contact Us</a>
+		</p>
 
-</footer>
+	</footer>
 
 
 

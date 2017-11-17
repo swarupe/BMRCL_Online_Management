@@ -12,7 +12,6 @@ session_start();
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -83,13 +82,13 @@ session_start();
         .bs-example{
         	margin: 10px;
         }
-        /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+
         .form-horizontal .control-label{
         	padding-top: 7px;
         }
         .margins {
-            margin-right: 5px;
-            margin-top: 17px;
+        	margin-right: 5px;
+        	margin-top: 17px;
         }
     </style>
 
@@ -102,62 +101,52 @@ session_start();
 
 
 	<div id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="container-fluid bg-color">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
 					<span class="sr-only">BMRCL Online Management</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="nav navbar-nav">
-                 <li><a href="HomePage.html">Home</a></li>
-                 <li class="active"><a href="#"><?php echo $_SESSION['Admin_Name']; ?></a></li>
-             </ul>
-             <div class="navbar-right margins">
-                <a href="admin_login.php" class="btn btn-info btn-lg">
-                  <span class="glyphicon glyphicon-log-out"></span> Log out
-              </a>
-          </div>
-      </div>
-  </div>
-</div>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="nav navbar-nav">
+					<li><a href="HomePage.html">Home</a></li>
+					<li class="active"><a href="#"><?php echo $_SESSION['Admin_Name']; ?></a></li>
+				</ul>
+				<div class="navbar-right margins">
+					<a href="admin_login.php" class="btn btn-info btn-lg">
+						<span class="glyphicon glyphicon-log-out"></span> Log out
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div class = "container">
+	<div class = "container">
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="demo-content"><a href="admin_manage_admins.php">Manage Admins</a></div>
-        </div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="demo-content"><a href="admin_manage_admins.php">Manage Admins</a></div>
+			</div>
 
-        <div class="col-md-4">
-            <div class="demo-content"><a href="admin_approve_cards.php">Approve Smart Card</a></div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="demo-content"><a href="admin_reply_complaints.php">Reply to Complaints</a></div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="demo-content"><a href="admin_manage_stations.html">Manage Station and Routes</a></div>
-        </div>
-        <div class="col-md-4">
-            <div class="demo-content"><a href="admin_manage_trains.html">Manage Trains and Timings</a></div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="demo-content"><a href="admin_manage_fair.html">Manage Fair Details</a></div>
-        </div>
-    </div>
+			<div class="col-md-6">
+				<div class="demo-content"><a href="admin_approve_cards.php">Approve Smart Card</a></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="demo-content"><a href="admin_manage_trains.html">Manage Trains</a></div>
+			</div>
+			<div class="col-md-6">
+				<div class="demo-content"><a href="admin_reply_complaints.php">Reply to Complaints</a></div>
+			</div>
+		</div>
 
 
-</div>
+	</div>
 
 
 
@@ -167,17 +156,15 @@ session_start();
 
 
 
-<footer class="footer-basic-centered">
+	<footer class="footer-basic-centered">
 
-    <p class="footer-links">
-        <a href="HomePage.html">Home</a>
-        |
-        <a href="contact_us.html">Contact Us</a>
-        |
-        <a href="support.html">Support</a>
-    </p>
+		<p class="footer-links">
+			<a href="HomePage.html">Home</a>
+			|
+			<a href="contact_us.html">Contact Us</a>
+		</p>
 
-</footer>
+	</footer>
 
 
 

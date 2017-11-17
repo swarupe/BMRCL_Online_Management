@@ -22,6 +22,6 @@ if(isset($_POST['submit']))
 	}
 }
 
-Closecon($con);
+CloseCon($con);
 
 ?>

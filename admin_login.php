@@ -14,7 +14,6 @@ session_start();
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -84,7 +83,7 @@ session_start();
         .bs-example{
         	margin: 10px;
         }
-        /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+
         .form-horizontal .control-label{
         	padding-top: 7px;
         }
@@ -99,7 +98,6 @@ session_start();
 
 
 	<div id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="container-fluid bg-color">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
@@ -113,15 +111,14 @@ session_start();
 				</button>
 				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
 					<li class="active"><a href="#" target="_blank">Admin Login</a></li>
 					<li><a href="smart_card_request_page.html">Smart Card Request</a></li>
 					<li><a href="smart_card_login.php">Smart Card Login</a></li>
-					<li><a href="train_and_timings.html">Trains and Timings</a></li>
-					<li><a href="routes_and_stations.html">Routes and Stations</a></li>
+					<li><a href="train_and_timings.php">Trains and Timings</a></li>
+					<li><a href="routes_and_stations.php">Routes and Stations</a></li>
 				</ul>
 			</div>
 		</div>
@@ -170,8 +167,6 @@ session_start();
 				<a href="HomePage.html">Home</a>
 				|
 				<a href="contact_us.html">Contact Us</a>
-				|
-				<a href="support.html">Support</a>
 			</p>
 
 		</footer>

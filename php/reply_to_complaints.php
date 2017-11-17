@@ -17,7 +17,6 @@ else {
 	echo "Error updating values";
 }
 
-
-Closecon($con);
+CloseCon($con);
 
 ?>

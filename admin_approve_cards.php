@@ -18,7 +18,6 @@ $con = OpenCon();
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -89,7 +88,7 @@ $con = OpenCon();
         .bs-example{
         	margin: 10px;
         }
-        /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+
         .form-horizontal .control-label{
         	padding-top: 7px;
         }
@@ -108,7 +107,6 @@ $con = OpenCon();
 
 
 	<div id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="container-fluid bg-color">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
@@ -118,11 +116,10 @@ $con = OpenCon();
 				</button>
 				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
-					<li class="active"><a href="#">Admin</a></li>
+					<li class="active"><a href="#"><?php echo $_SESSION['Admin_Name']; ?></a></li>
 				</ul>
 				<div class="navbar-right margins">
 					<a href="adminlogin.php" class="btn btn-info btn-lg">
@@ -150,7 +147,7 @@ $con = OpenCon();
                     <th>Customer ID</th>
                     <th>Smart Card Number</th>
                     <th>Card Status</th>
-                    <th>New Status</th>
+                    <!--<th>New Status</th>-->
                     <th>Operation</th>
                 </tr>
             </thead>
@@ -162,10 +159,10 @@ $con = OpenCon();
                     foreach ($row as $key => $value) {
                         echo '<td style="word-wrap: break-word;min-width: 10px;max-width: 300px;">',$value,'</td>';
                     }
-                    echo '<form action="php/issue_card.php" method="GET"><td><input name="new_status" type="text" class="form-control" required="required" data-error="Enter status" /></td><td><input name="'.$row['Cust_Id'].'" type="submit" class="btn btn-link" value="Update Status"/></td></form>';
+                    //echo '<form action="php/issue_card.php" method="GET"><td><input name="new_status" type="text" class="form-control" required="required" data-error="Enter status" /></td><td><input name="'.$row['Cust_Id'].'" type="submit" class="btn btn-link" value="Update Status"/></td></form>';
 
                     //echo '<form action="php/issue_card.php" method="GET"><td><input name="new_status" type="text" class="form-control" required="required" data-error="Enter status" /></td>';
-                    //echo "<td><a href='php/issue_card.php?id=".$row['Cust_Id']."'><button type=\"button\" class=\"btn btn-link\">Status Update</button></a></td></form>";
+                    echo "<td><a href='php/issue_card.php?cardno=".$row['Card_No']."'><button type=\"button\" class=\"btn btn-link\">Status Update</button></a></td></form>";
                     echo '</tr>';
                 }
                 ?>
@@ -181,14 +178,12 @@ $con = OpenCon();
     <footer class="footer-basic-centered">
 
       <p class="footer-links">
-       <a href="HomePage.html">Home</a>
-       |
-       <a href="conatct_us.html">Contact Us</a>
-       |
-       <a href="support.html">Support</a>
-   </p>
+         <a href="HomePage.html">Home</a>
+         |
+         <a href="conatct_us.html">Contact Us</a>
+     </p>
 
-</footer>
+ </footer>
 
 
 

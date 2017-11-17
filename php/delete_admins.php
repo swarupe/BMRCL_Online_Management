@@ -17,6 +17,6 @@ if (mysqli_query($con, $sql)) {
 	echo "Error deleting record";
 }
 
-Closecon($con);
+CloseCon($con);
 
 ?>

@@ -24,6 +24,6 @@ if(isset($_POST['submit']))
 	header("location: ../smart_card_login.php");
 }
 
-Closecon($con);
+CloseCon($con);
 
 ?>

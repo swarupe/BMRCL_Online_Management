@@ -18,7 +18,6 @@ $con = OpenCon();
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -89,7 +88,7 @@ $con = OpenCon();
         .bs-example{
         	margin: 10px;
         }
-        /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+
         .form-horizontal .control-label{
         	padding-top: 7px;
         }
@@ -108,7 +107,6 @@ $con = OpenCon();
 
 
 	<div id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="container-fluid bg-color">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
@@ -118,11 +116,10 @@ $con = OpenCon();
 				</button>
 				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
-					<li class="active"><a href="#">Admin</a></li>
+					<li class="active"><a href="#"><?php echo $_SESSION['Admin_Name']; ?></a></li>
 				</ul>
 				<div class="navbar-right margins">
 					<a href="admin_login.php" class="btn btn-info btn-lg">
@@ -216,8 +213,6 @@ $con = OpenCon();
 			<a href="HomePage.html">Home</a>
 			|
 			<a href="contact_us.html">Contact Us</a>
-			|
-			<a href="support.html">Support</a>
 		</p>
 
 	</footer>

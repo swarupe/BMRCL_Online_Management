@@ -4,15 +4,14 @@ include("connect.php");
 
 $con = OpenCon();
 
-$id = $_GET['2'];
+$smartcard_no = $_GET['cardno'];
 $admin_id = $_SESSION['Admin_Id'];
-$new_status = $_GET['new_status'];
 
-if(isset($_GET['2']))
+if(isset($_GET['cardno']))
 {
 	echo $new_status;
 	echo $admin_id;
-	echo $id;
+	echo $smartcard_no;
 }
 
 
@@ -28,6 +27,6 @@ else {
 }*/
 
 
-Closecon($con);
+CloseCon($con);
 
 ?>

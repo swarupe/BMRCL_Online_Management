@@ -21,6 +21,6 @@ if(isset($_POST['submit']))
 	header("location: ../complaint.php");
 }
 
-Closecon($con);
+CloseCon($con);
 
 ?>
