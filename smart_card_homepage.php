@@ -167,7 +167,6 @@ session_start();
 <div style="margin-left: 9em; margin-right: 50em;">
     <p class="bg-success" style="margin-top: 20px;">
         <?php
-
         if(!empty($_SESSION['successfull']))
         {
             echo $_SESSION['successfull'];

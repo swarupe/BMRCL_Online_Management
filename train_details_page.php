@@ -6,14 +6,12 @@ $con = OpenCon();
 
 if(isset($_POST['submit']))
 {
-    $route = $_POST['route'];
-    $from_addr = $_POST['from'];
-    $to_addr = $_POST['to'];
-    $details = mysqli_query($con,"SELECT T.Train_Id, frm.Station_Name AS 'FROM' , too.Station_Name AS 'TO', D.Arrival, D.Departure
-        FROM display_status D, train T,station S, station frm, station too, route R
-        WHERE T.Train_Id=D.Train_id AND D.Station_Id = S.Station_Id AND R.Route_Id = S.Route_Id  AND R.Route_Name = '$route' AND Frm.Station_Name = '$from_addr' AND too.Station_Name = '$to_addr'  ");
-    $row_cnt = mysqli_num_rows($details);
+	$route = $_POST['route'];
+	$from_addr = $_POST['from'];
+	$to_addr = $_POST['to'];
 
+	$details = mysqli_query($con,"CALL train_details('$route','$from_addr','$to_addr')");
+	$row_cnt = mysqli_num_rows($details);
 }
 ?>
 
@@ -29,7 +27,7 @@ if(isset($_POST['submit']))
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script src="js/html5shiv-printshiv.js"></script>
@@ -40,10 +38,10 @@ if(isset($_POST['submit']))
 
         .demo-content{
         	padding: 50px;
-            font-size: 18px;
-            text-align: center;
-            background: #8eccc6;
-            margin:50px 22em 50px 22em;
+        	font-size: 18px;
+        	text-align: center;
+        	background: #8eccc6;
+        	margin:50px 22em 50px 22em;
 
         }
         .demo-content.bg-alt{
@@ -134,46 +132,44 @@ if(isset($_POST['submit']))
 	</div>
 
 
-    <div class="container">
+	<div class="container">
 
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Train Number</th>
-                    <!--<th>Train Name</th>-->
-                    <th>From</th>
-                    <th>To</th>
-                    <th>Arrival</th>
-                    <th>Departure</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                while ($row = mysqli_fetch_assoc($details))
-                {
-                    echo '<tr>';
-                    foreach ($row as $key => $value) {
-                        echo '<td>',$value,'</td>';
-                    }
-                //echo "<td><a href='php/delete_admins.php?id=".$row['Admin_ID']."'><button type=\"button\" class=\"btn btn-link\">Delete</button></a></td>";
-                    echo '</tr>';
-                }
-                ?>
-            </tbody>
-        </table>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Train Number</th>
+					<th>From</th>
+					<th>To</th>
+					<th>Arrival</th>
+					<th>Departure</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				while ($row = mysqli_fetch_assoc($details))
+				{
+					echo '<tr>';
+					foreach ($row as $key => $value) {
+						echo '<td>',$value,'</td>';
+					}
+					echo '</tr>';
+				}
+				?>
+			</tbody>
+		</table>
 
-    </div>
+	</div>
 
 
-    <footer class="footer-basic-centered">
+	<footer class="footer-basic-centered">
 
-        <p class="footer-links">
-            <a href="HomePage.html">Home</a>
-            |
-            <a href="contact_us.html">Contact Us</a>
-        </p>
+		<p class="footer-links">
+			<a href="HomePage.html">Home</a>
+			|
+			<a href="contact_us.html">Contact Us</a>
+		</p>
 
-    </footer>
+	</footer>
 
 
 
@@ -184,6 +180,6 @@ if(isset($_POST['submit']))
 <?php
 
 $details->free();
-Closecon($con);
+CloseCon($con);
 
 ?>

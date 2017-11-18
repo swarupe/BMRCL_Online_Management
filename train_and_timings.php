@@ -1,3 +1,11 @@
+<?php
+
+include("php/connect.php");
+
+$con = OpenCon();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,8 +128,18 @@
 				<label class="control-label col-xs-2">Route</label>
 				<div class="col-xs-10">
 					<select name="route" class="form-control" id="sel1">
-						<option>Green Lane</option>
-						<option>Purple Lane</option>
+						<?php
+
+						$sql = "SELECT Route_Name FROM `route`";
+
+						$routes = mysqli_query($con, $sql);
+
+						while ($rows = mysqli_fetch_assoc($routes)) {
+							foreach ($rows as $key => $value) {
+								echo "<option>".$value."</option>";
+							}
+						}
+						?>
 					</select>
 				</div>
 			</div>

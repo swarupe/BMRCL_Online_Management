@@ -150,12 +150,6 @@ session_start();
 
 
 
-
-
-
-
-
-
 	<footer class="footer-basic-centered">
 
 		<p class="footer-links">

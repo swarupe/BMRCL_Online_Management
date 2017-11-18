@@ -18,7 +18,7 @@ if(isset($_POST['submit']))
 
 	$smartcard_no = rand(1111111111,1999999999);
 
-	$add_new_card = mysqli_query($con,"INSERT INTO `smartcard`(`Card_No`,`Cust_Id`) VALUES ('$smartcard_no','$cust_id')");
+	$add_new_card = mysqli_query($con,"INSERT INTO `smartcard`(`Card_No`,`Username`) VALUES ('$smartcard_no','$username')");
 
 	$_SESSION['request_sent'] = "Your request has been sent successfully login to check the status";
 	header("location: ../smart_card_login.php");

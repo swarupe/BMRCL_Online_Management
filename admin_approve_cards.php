@@ -134,7 +134,7 @@ $con = OpenCon();
 
     <?php
 
-    $cards = mysqli_query($con,"SELECT Cust_Id, Card_No, Card_Status FROM smartcard WHERE Card_Status NOT IN (SELECT Card_Status FROM smartcard where Card_Status = 'Issued') ORDER BY Cust_Id");
+    $cards = mysqli_query($con,"SELECT Username, Card_No, Card_Status FROM smartcard WHERE Card_Status NOT IN (SELECT Card_Status FROM smartcard where Card_Status = 'Issued')");
 
     ?>
 
@@ -144,7 +144,7 @@ $con = OpenCon();
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Customer ID</th>
+                    <th>Customer Username</th>
                     <th>Smart Card Number</th>
                     <th>Card Status</th>
                     <!--<th>New Status</th>-->
@@ -178,12 +178,12 @@ $con = OpenCon();
     <footer class="footer-basic-centered">
 
       <p class="footer-links">
-         <a href="HomePage.html">Home</a>
-         |
-         <a href="conatct_us.html">Contact Us</a>
-     </p>
+       <a href="HomePage.html">Home</a>
+       |
+       <a href="conatct_us.html">Contact Us</a>
+   </p>
 
- </footer>
+</footer>
 
 
 
