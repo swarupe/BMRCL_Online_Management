@@ -352,7 +352,7 @@ insert into DISPLAY_STATUS values('Vijayanagar','Attiguppe','10:25','10:30',7);
 insert into DISPLAY_STATUS values('Attiguppe','Deepanjali Nagar','10:30','10:35',7);
 insert into DISPLAY_STATUS values('Deepanjali Nagar','Mysuru Road','10:35','10:40',7);
 
-create table REPLY(Reply_Id int, ReplyMessage varchar(500),Admin_Id int,Comp_Id int,
+create table REPLY(Reply_Id int AUTO_INCREMENT, ReplyMessage varchar(500),Admin_Id int,Comp_Id int,
 primary key(Reply_Id,Admin_Id,Comp_Id),
 foreign key(Comp_Id) references COMPLAINT(Comp_Id) on delete cascade,
 foreign key(Admin_Id) references ADMIN(Admin_Id));

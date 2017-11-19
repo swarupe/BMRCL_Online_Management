@@ -1,3 +1,12 @@
+<?php
+
+include("php/connect.php");
+
+$con = OpenCon();
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +18,6 @@
 
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,6 +96,7 @@
         	margin-right: 5px;
         	margin-top: 17px;
         }
+
     </style>
 
 </head>
@@ -111,7 +120,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">
 					<li><a href="HomePage.html">Home</a></li>
-					<li class="active"><a href="#">Admin</a></li>
+					<li class="active"><a href="#"><?php echo $_SESSION['Admin_Name']; ?></a></li>
 				</ul>
 				<div class="navbar-right margins">
 					<a href="admin_login.php" class="btn btn-info btn-lg">
@@ -122,19 +131,56 @@
 		</div>
 	</div>
 
+    <?php
+    $id = $_GET['id'];
+    $admin_id = $_SESSION['Admin_Id'];
+    $_SESSION['Comp_Id'] = $id;
 
+    $sql = "SELECT * FROM complaint WHERE Comp_Id = '$id'";
 
-	<footer class="footer-basic-centered">
+    $complaint = mysqli_query($con,$sql);
 
-		<p class="footer-links">
-			<a href="HomePage.html">Home</a>
-			|
-			<a href="contact_us.html">Contact Us</a>
-		</p>
+    $row = mysqli_fetch_assoc($complaint);
+    ?>
 
-	</footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <form id="contact-form" method="post" action="php/reply_to_complaints.php" role="form">
+                    <div class="controls">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Complaint Subject : </label><?php echo($row['Comp_Subject']); ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Complaint Description : </label><?php echo($row['Comp_Desc']); ?>
+                                </div>
+                                <div class="form-group">
+                                    <label>Reply Message</label>
+                                    <textarea name="reply_msg" class="form-control" placeholder="Enter reply message" rows="4" required="required" data-error="Please,enter the message"></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="submit" name="submit" class="btn btn-success btn-send" value="Send Reply">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <footer class="footer-basic-centered">
 
+      <p class="footer-links">
+         <a href="HomePage.html">Home</a>
+         |
+         <a href="contact_us.html">Contact Us</a>
+     </p>
+
+ </footer>
 
 </body>
 </html>

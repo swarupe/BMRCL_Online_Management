@@ -4,12 +4,15 @@ include("connect.php");
 
 $con = OpenCon();
 
-$id = $_GET['id'];
+$compid = $_SESSION['Comp_Id'];
 $admin_id = $_SESSION['Admin_Id'];
+$replymsg = $_POST['reply_msg'];
 
-$sql = "UPDATE complaint SET Comp_Status = 'Replied', Admin_id = '$admin_id' WHERE complaint.Comp_Id = $id";
+$sql = "UPDATE complaint SET Comp_Status = 'Replied', Admin_id = '$admin_id' WHERE complaint.Comp_Id = $compid";
 
 if (mysqli_query($con, $sql)) {
+	mysqli_query($con, "INSERT INTO `reply`(`ReplyMessage`, `Admin_Id`, `Comp_Id`) VALUES ('$replymsg','$admin_id','$compid')");
+	unset($_SESSION['Comp_Id']);
 	header('Location: ../admin_reply_complaints.php');
 	exit;
 }

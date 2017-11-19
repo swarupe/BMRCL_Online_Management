@@ -4,15 +4,14 @@ include("connect.php");
 
 $con = OpenCon();
 
-$smartcard_no = $_GET['cardno'];
+$smartcard_no = $_GET['id'];
 $admin_id = $_SESSION['Admin_Id'];
+$new_status = $_GET['status'];
 
-if(isset($_GET['cardno']))
-{
-	echo $new_status;
-	echo $admin_id;
-	echo $smartcard_no;
-}
+$sql = "UPDATE smartcard SET Card_Status = '$new_status', Admin_Id = '$admin_id' WHERE smartcard.smartcard_no = $smartcard_no";
+
+mysqli_query($con, $sql);
+
 
 
 

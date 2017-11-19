@@ -1,3 +1,11 @@
+<?php
+include("php/connect.php");
+
+$con = OpenCon();
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +65,7 @@
             width: wrap-content;
             text-align: center;
             font-size: 20px;
-            position: absolute;
+            position: relative;
             right: 0;
             bottom: 0;
             left: 0;
@@ -113,7 +121,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="nav navbar-nav">
                     <li><a href="HomePage.html">Home</a></li>
-                    <li class="active"><a href="#">Admin</a></li>
+                    <li class="active"><a href="#"><?php echo $_SESSION['Admin_Name']; ?></a></li>
                 </ul>
                 <div class="navbar-right margins">
                     <a href="admin_login.php" class="btn btn-info btn-lg">
@@ -125,22 +133,69 @@
   </div>
 
 
+  <?php
+
+  $trains = mysqli_query($con,"SELECT Train_Id, Route_Id  FROM train WHERE 1");
+
+  ?>
+
+  <div class="container">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Train ID</th>
+                <th>Route ID</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            while ($row = mysqli_fetch_assoc($trains))
+            {
+                echo '<tr>';
+                foreach ($row as $key => $value) {
+                    echo '<td>',$value,'</td>';
+                }
+                echo "<td><a href='php/delete_trains.php?id=".$row['Train_Id']."'><button type=\"button\" class=\"btn btn-link\">Delete</button></a></td>";
+                echo '</tr>';
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <h2>Add New Trains</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Train ID</th>
+                <th>Route ID</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <form action="php/add_new_trains.php" method="POST">
+                    <td><input name="t_id" type="number" class="form-control" required="required" data-error="Enter Train ID" /></td>
+                    <td><input name="r_id" type="number" class="form-control" required="required" data-error="Enter Route ID"/></td>
+                    <td><input type="submit" name="submit" class="btn btn-link" value="Add" /></td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 
 
-
-
-
-
-  <footer class="footer-basic-centered">
+<footer class="footer-basic-centered">
 
     <p class="footer-links">
         <a href="HomePage.html">Home</a>
         |
         <a href="contact_us.html">Contact Us</a>
-        |
-        <a href="support.html">Support</a>
     </p>
 
 </footer>

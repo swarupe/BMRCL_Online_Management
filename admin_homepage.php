@@ -138,7 +138,7 @@ session_start();
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<div class="demo-content"><a href="admin_manage_trains.html">Manage Trains</a></div>
+				<div class="demo-content"><a href="admin_manage_trains.php">Manage Trains</a></div>
 			</div>
 			<div class="col-md-6">
 				<div class="demo-content"><a href="admin_reply_complaints.php">Reply to Complaints</a></div>
