@@ -4,26 +4,20 @@ include("connect.php");
 
 $con = OpenCon();
 
-$smartcard_no = $_GET['id'];
+$smartcard_no = $_POST['id'];
 $admin_id = $_SESSION['Admin_Id'];
-$new_status = $_GET['status'];
-
-$sql = "UPDATE smartcard SET Card_Status = '$new_status', Admin_Id = '$admin_id' WHERE smartcard.smartcard_no = $smartcard_no";
-
-mysqli_query($con, $sql);
+$new_status = $_POST['new_status'];
 
 
+echo $smartcard_no."<br>".$admin_id."<br>".$new_status;
 
+$sql = "UPDATE `smartcard` SET `Card_Status` = '$new_status', `Admin_Id` = '$admin_id' WHERE `smartcard`.`Card_No` = '$smartcard_no'";
 
-//$sql = "UPDATE complaint SET Comp_Status = 'Replied', Admin_id = '$admin_id' WHERE complaint.Comp_Id = $id";
-
-/*if (mysqli_query($con, $sql)) {
+if(mysqli_query($con, $sql))
+{
 	header('Location: ../admin_approve_cards.php');
-	exit;
 }
-else {
-	echo "Error updating values";
-}*/
+
 
 
 CloseCon($con);
