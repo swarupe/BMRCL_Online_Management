@@ -24,7 +24,7 @@ $con = OpenCon();
             <script src="js/html5shiv-printshiv.js"></script>
         <![endif]-->
 
-        <title> BMRCL Online Management</title>
+        <title> Metro Online Management</title>
         <style type="text/css">
 
         .demo-content{
@@ -112,11 +112,11 @@ $con = OpenCon();
 		<div class="container-fluid bg-color">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
-					<span class="sr-only">BMRCL Online Management</span>
+					<span class="sr-only">Metro Online Management</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="HomePage.html">BMRCL Online Management</a>
+				<a class="navbar-brand" href="HomePage.html">Metro Online Management</a>
 			</div>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="nav navbar-nav">

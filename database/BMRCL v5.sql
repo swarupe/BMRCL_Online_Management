@@ -156,18 +156,17 @@ insert into TRAIN values(7,2,3);
 insert into TRAIN values(4,1,4);
 insert into TRAIN values(8,1,4);
 
-create table COMPLAINT(Comp_Id int primary key AUTO_INCREMENT,Comp_Subject varchar(50),Comp_Desc varchar(500),Comp_Status varchar(20) NOT NULL DEFAULT 'Not_Replied',Admin_id int,Username varchar(20),
-foreign key(Username) references CUSTOMER(Username),
-foreign key(Admin_Id) references ADMIN(Admin_Id));
+create table COMPLAINT(Comp_Id int primary key AUTO_INCREMENT,Comp_Subject varchar(50),Comp_Desc varchar(500),Comp_Status varchar(20) NOT NULL DEFAULT 'Not_Replied',Username varchar(20),
+foreign key(Username) references CUSTOMER(Username));
 
-insert into COMPLAINT values(1,'ABC','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Not_Replied',NULL,'SwarupE');
-insert into COMPLAINT values(2,'ABCD','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Replied',2,'DivyaRB');
-insert into COMPLAINT values(3,'XYZ','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Not_Replied',NULL,'DivyaB');
-insert into COMPLAINT values(4,'AVBC','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Not_Replied',NULL,'SajidKhan');
-insert into COMPLAINT values(5,'ABCB','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Replied',2,'ChaitanyaN');
-insert into COMPLAINT values(6,'ABCD','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Replied',1,'DivyaB');
-insert into COMPLAINT values(7,'ABCD','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Replied',1,'RamadasGB');
-insert into COMPLAINT values(8,'ABC','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Not_Replied',NULL,'JayantiR');
+insert into COMPLAINT values(1,'ABC','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Not_Replied','SwarupE');
+insert into COMPLAINT values(2,'ABCD','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Replied','DivyaRB');
+insert into COMPLAINT values(3,'XYZ','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Not_Replied','DivyaB');
+insert into COMPLAINT values(4,'AVBC','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Not_Replied','SajidKhan');
+insert into COMPLAINT values(5,'ABCB','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Replied','ChaitanyaN');
+insert into COMPLAINT values(6,'ABCD','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Replied','DivyaB');
+insert into COMPLAINT values(7,'ABCD','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Replied','RamadasGB');
+insert into COMPLAINT values(8,'ABC','abcdefgdiueiwehsjdbueiowdnbkdkhfieroiecvjdjfueruroizm','Not_Replied','JayantiR');
 
 create table EMAIL(Username varchar(30),Email varchar(20),
 primary key(Username,Email),
