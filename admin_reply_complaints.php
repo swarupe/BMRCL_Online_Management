@@ -133,42 +133,73 @@ $con = OpenCon();
 	</div>
 
 
+
+
 	<?php
+	$query = "SELECT Comp_Id, Comp_Subject, Comp_Desc FROM complaint WHERE Comp_Status = 'Not_Replied'";
+	$query_run = mysqli_query($con, $query);
+	if($query_run){
 
-	$complaints = mysqli_query($con,"SELECT Comp_Id, Comp_Subject, Comp_Desc FROM complaint WHERE Comp_Status = 'Not_Replied'");
-
-	?>
-
-
-	<div class="container">
-
+		echo '<div class="container">
 		<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th>Complaint ID</th>
-					<th>Subject</th>
-					<th>Complaint Description</th>
-					<th>Operation</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-				while ($row = mysqli_fetch_assoc($complaints))
-				{
-					echo '<tr>';
-					foreach ($row as $key => $value) {
-						echo '<td style="word-wrap: break-word;min-width: 10px;max-width: 300px;">',$value,'</td>';
-					}
-					echo "<td><a href='admin_complaint_reply_input.php?id=".$row['Comp_Id']."'><button type=\"button\" class=\"btn btn-link\">Reply</button></a></td>";
-					echo '</tr>';
-				}
-				?>
-			</tbody>
-		</table>
+		<thead>
+		<tr>
+		<th>Complaint ID</th>
+		<th>Subject</th>
+		<th>Complaint Description</th>
+		<th>Operation</th>
+		</tr>
+		</thead>
+		<tbody>';
+
+		while($row = mysqli_fetch_assoc($query_run)){
+			echo '<tr class="trCompID_' .$row['Comp_Id']. '">';
+			echo '<td class="td_CompID">' . $row['Comp_Id'] . '</td>';
+			echo '<td class="td_compsubject">' . $row['Comp_Subject'] . '</td>';
+			echo '<td class="td_comp_desc">' . $row['Comp_Desc'] . '</td>';
+			echo "<td><button class='td_btn btn btn-link btn-custom dis'>Reply</button> </td>";
+			echo '</tr>';
+		}
+		echo '</tbody></table></div>';
+
+	}?>
+
+	<script>
+		$(document).ready(function(){
+			$('.td_btn').click(function(){
+				var $row = $(this).closest('tr');
+				var compID = $row.attr('class').split('_')[1];
+				$('#comp_id').val(compID);
+				$('#myModal').modal('show');
+			});
+		});
+	</script>
+
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Enter Reply Message</h4>
+				</div>
+				<div class="modal-body">
+
+					<form id="updateValues" action="php/reply_to_complaints.php" method="POST" class="form">
+						<div class="form-group">
+							<label for="name">Reply</label>
+							<textarea type="text" class="form-control" name="reply_msg" id="frm_name"></textarea>
+						</div>
+
+						<input type="hidden" id="comp_id" name="comp_id">
+						<input type="submit" class="btn btn-primary btn-custom" value="Reply">
+					</form>
+
+				</div>
+
+
+			</div>
+		</div>
 	</div>
-
-
-
 
 
 	<footer class="footer-basic-centered">
