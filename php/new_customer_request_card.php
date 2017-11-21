@@ -4,6 +4,8 @@ include("connect.php");
 
 $con = OpenCon();
 
+session_start();
+
 if(isset($_POST['submit']))
 {
 	$fname = $_POST['fname'];

@@ -4,6 +4,8 @@ include("connect.php");
 
 $con = OpenCon();
 
+session_start();
+
 $compid = $_POST['comp_id'];
 $admin_id = $_SESSION['Admin_Id'];
 $replymsg = $_POST['reply_msg'];

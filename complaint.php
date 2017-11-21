@@ -1,6 +1,7 @@
 <?php
 include("php/connect.php");
 $con = OpenCon();
+session_start();
 ?>
 <!DOCTYPE html>
 <html>

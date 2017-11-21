@@ -117,7 +117,7 @@ session_start();
 					<li class="active"><a href="#"><?php echo $_SESSION['Admin_Name']; ?></a></li>
 				</ul>
 				<div class="navbar-right margins">
-					<a href="admin_login.php" class="btn btn-info btn-lg">
+					<a href="php/logout_admin.php" class="btn btn-info btn-lg">
 						<span class="glyphicon glyphicon-log-out"></span> Log out
 					</a>
 				</div>

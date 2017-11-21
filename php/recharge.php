@@ -4,6 +4,8 @@ include("connect.php");
 
 $con = OpenCon();
 
+session_start();
+
 $amount = $_POST['amount'];
 $cardno = $_SESSION['Card_Number'];
 

@@ -22,6 +22,7 @@ if($count > 0)
 	header("Location: ../admin_homepage.php");
 }
 else {
+	session_start();
 	$_SESSION['error_message']="Wrong Admin ID or Password";
 	header("location: ../admin_login.php");
 }

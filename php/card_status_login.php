@@ -27,7 +27,7 @@ if($row_cnt > 0)
 	header("Location: ../smart_card_homepage.php");
 }
 else {
-
+	session_start();
 	$_SESSION['error_message']="Wrong Username or Password";
 	header("location: ../smart_card_login.php");
 }

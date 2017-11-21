@@ -115,12 +115,12 @@ session_start();
             </div>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="nav navbar-nav">
-                   <li><a href="HomePage.html">Home</a></li>
-                   <li class="active"><a href="#">Smart Card</a></li>
-                   <li> <a href="complaint.php">Complaint</a></li>
-               </ul>
-               <div class="navbar-right margins">
-                <a href="smart_card_login.php" class="btn btn-info btn-lg">
+                 <li><a href="HomePage.html">Home</a></li>
+                 <li class="active"><a href="#">Smart Card</a></li>
+                 <li> <a href="complaint.php">Complaint</a></li>
+             </ul>
+             <div class="navbar-right margins">
+                <a href="php/logout_smartcard.php" class="btn btn-info btn-lg">
                   <span class="glyphicon glyphicon-log-out"></span> Log out
               </a>
           </div>

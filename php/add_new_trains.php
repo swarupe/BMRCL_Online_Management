@@ -16,6 +16,7 @@ if(isset($_POST['submit']))
 		header('Location: ../admin_manage_trains.php');
 		exit;
 	} else {
+		session_start();
 		$_SESSION['error'] = mysqli_error($con);
 		header('Location: ../admin_manage_trains.php');
 	}
