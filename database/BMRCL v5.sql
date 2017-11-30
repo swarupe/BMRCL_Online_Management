@@ -388,21 +388,13 @@ DELIMITER //
 CREATE PROCEDURE train_details(IN RouteName varchar(35),IN From_addr varchar(25), IN To_addr varchar(25))
 
 BEGIN
-START TRANSACTION;
- (SELECT T.Train_Id, From_Station , To_Station , D.Arrival, D.Departure 
-  FROM display_status D, train T, route R  
-  WHERE T.Train_Id=D.Train_id 
+ SELECT T.Train_Id, D1.From_Station, D1.Arrival AS Source_Arrival, D1.Departure AS Source_Departure, D2.To_Station, D2.Arrival AS Dest_Arrival, D2.Departure AS Dest_Departure
+  FROM display_status D1, train T, route R, display_status D2  
+  WHERE T.Train_Id=D1.Train_id AND T.Train_Id =D2.Train_id 
   	AND R.Route_Id = T.Route_Id  
   	AND R.Route_Name = RouteName 
-  	AND From_Station =  From_addr) 
- UNION 
- (SELECT T.Train_Id, From_Station , To_Station , D.Arrival, D.Departure 
-  FROM display_status  D, train T, route R 
-  WHERE T.Train_Id=D.Train_id 
-  	AND R.Route_Id = T.Route_Id  
-  	AND R.Route_Name = RouteName 
-  	AND To_Station = To_addr);
-   COMMIT;
+  	AND D1.From_Station =  From_addr 
+    AND D2.To_Station = To_addr;
 END //
 
 DELIMITER ;

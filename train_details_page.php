@@ -13,6 +13,12 @@ if(isset($_POST['submit']))
 	$details = mysqli_query($con,"CALL train_details('$route','$from_addr','$to_addr')");
 	$row_cnt = mysqli_num_rows($details);
 }
+if($row_cnt == 0)
+{
+	session_start();
+	$_SESSION['error_station'] = "No Station Found";
+	header("Location: train_and_timings.php");
+}
 ?>
 
 
@@ -71,7 +77,6 @@ if(isset($_POST['submit']))
         .footer-basic-centered{
         	background-color: #232426;
         	box-sizing: border-box;
-        	width: wrap-content;
         	text-align: center;
         	font-size: 20px;
         	position: absolute;
@@ -139,6 +144,8 @@ if(isset($_POST['submit']))
 				<tr>
 					<th>Train Number</th>
 					<th>From</th>
+					<th>Arrival</th>
+					<th>Departure</th>
 					<th>To</th>
 					<th>Arrival</th>
 					<th>Departure</th>
@@ -146,7 +153,7 @@ if(isset($_POST['submit']))
 			</thead>
 			<tbody>
 				<?php
-				while ($row = mysqli_fetch_assoc($details))
+				while ($row = mysqli_fetch_assoc($details) )
 				{
 					echo '<tr>';
 					foreach ($row as $key => $value) {

@@ -62,7 +62,6 @@ session_start();
         .footer-basic-centered{
         	background-color: #232426;
         	box-sizing: border-box;
-        	width: wrap-content;
         	text-align: center;
         	font-size: 20px;
         	position: absolute;

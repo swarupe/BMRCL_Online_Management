@@ -56,7 +56,6 @@ session_start();
         .footer-basic-centered{
         	background-color: #232426;
         	box-sizing: border-box;
-        	width: wrap-content;
         	text-align: center;
         	font-size: 20px;
         	position: absolute;
@@ -152,7 +151,7 @@ session_start();
     <form action="php/recharge.php" method="POST">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="form_phone">Recharge Amount</label>
+                <label>Recharge Amount</label>
                 <input type="number" name="amount" class="form-control" placeholder="Please enter amount">
                 <div class="help-block with-errors"></div>
             </div>

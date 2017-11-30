@@ -61,7 +61,6 @@ $con = OpenCon();
         .footer-basic-centered{
         	background-color: #232426;
         	box-sizing: border-box;
-        	width: wrap-content;
         	text-align: center;
         	font-size: 20px;
         	position: absolute;
@@ -161,6 +160,17 @@ $con = OpenCon();
 				</div>
 			</div>
 		</form>
+		<p class="bg-danger">
+			<?php
+			if(!empty($_SESSION['error_station']))
+			{
+				echo $_SESSION['error_station'];
+				unset($_SESSION['error_station']);
+			}
+
+			?>
+		</p>
+		
 	</div>
 
 

@@ -58,7 +58,6 @@ session_start();
         .footer-basic-centered{
         	background-color: #232426;
         	box-sizing: border-box;
-        	width: wrap-content;
         	text-align: center;
         	font-size: 20px;
         	position: absolute;
@@ -124,7 +123,7 @@ session_start();
 
         <div class="col-lg-8 col-lg-offset-2">
 
-            <form id="contact-form" method="post" action="php/send_complaint.php" role="form">
+            <form id="contact-form" method="post" action="php/send_complaint.php">
 
                 <div class="messages"></div>
 
